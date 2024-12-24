@@ -1,5 +1,6 @@
-using SAC9.Lexer;
-using SAC9.Parser;
+using SAC.Lexer;
+using SAC.Parser;
+
 
 namespace test;
 
@@ -17,11 +18,14 @@ public class parserTest {
       "صحيح رقم1;",
       // "رقم1 = 5;",
 
+
     });
-    Parser.lexemes = Lexer.scan(input);
-    var result = Parser.Parse();
-    Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(result));
-  }
+
+        Parser parser = new Parser(Lexer.scan(input));
+        var result = parser.Parse();
+        Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(result));
+
+    }
 
   [Test]
   public void Test3() {
@@ -30,8 +34,8 @@ public class parserTest {
       "بينما (رقم1 <= 5 )",
       "{رقم1 = رقم1 + 1+2;}",
     });
-    Parser.lexemes = Lexer.scan(input);
-    var result = Parser.Parse();
-    Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(result));
-  }
+        Parser parser = new Parser(Lexer.scan(input));
+        var result = parser.Parse();
+        Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(result));
+    }
 }

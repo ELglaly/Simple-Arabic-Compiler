@@ -69,6 +69,7 @@ public class LexerTest
         Assert.True(Lexer.ResWord("احا") == TokenType.Ident, "error in a7a");
     }
 
+
     // Test the scanning of a single line of code into lexemes
     [Test]
     public void scan1()
@@ -99,6 +100,8 @@ public class LexerTest
             "صحيح رقم1 = 5;",
             "صحيح احمد[5] = {0,1,2,3,4};",
         });
+
+
 
         // Expected lexemes for this input
         List<Lexeme> expect = new List<Lexeme>() {
@@ -157,7 +160,7 @@ public class LexerTest
             new Lexeme() { type = TokenType.while_, value = "بينما", line = 1, column = 0 },
             new Lexeme() { type = TokenType.OpenPar, value = "(", line = 1, column = 6 },
             new Lexeme() { type = TokenType.Ident, value = "رقم1", line = 1, column = 7 },
-            new Lexeme() { type = TokenType.le_, value = "<=", line = 1, column = 12 },
+            new Lexeme() { type = TokenType.LogOp, value = "<=", line = 1, column = 12 },
             new Lexeme() { type = TokenType.Number, value = "5", line = 1, column = 15 },
             new Lexeme() { type = TokenType.ClosePar, value = ")", line = 1, column = 16 },
 
@@ -165,9 +168,9 @@ public class LexerTest
             new Lexeme() { type = TokenType.Ident, value = "رقم1", line = 2, column = 0 },
             new Lexeme() { type = TokenType.equal_, value = "=", line = 2, column = 5 },
             new Lexeme() { type = TokenType.Ident, value = "رقم1", line = 2, column = 7 },
-            new Lexeme() { type = TokenType.plus_, value = "+", line = 2, column = 13 },
+            new Lexeme() { type = TokenType.AddOp, value = "+", line = 2, column = 13 },
             new Lexeme() { type = TokenType.Number, value = "1", line = 2, column = 14 },
-            new Lexeme() { type = TokenType.plus_, value = "+", line = 2, column = 16 },
+            new Lexeme() { type = TokenType.AddOp, value = "+", line = 2, column = 16 },
             new Lexeme() { type = TokenType.Number, value = "2", line = 2, column = 17 },
             new Lexeme() { type = TokenType.Simecolon, value = ";", line = 2, column = 18 }
         };
