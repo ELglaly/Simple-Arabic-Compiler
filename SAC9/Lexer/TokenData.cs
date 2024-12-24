@@ -27,6 +27,7 @@ public enum TokenType
     invalid         // Invalid or unrecognized token
 }
 
+
 // Class to represent a lexeme (token with additional details)
 public record Lexeme
 {
@@ -34,4 +35,6 @@ public record Lexeme
     public TokenType type { set; get; } = 0; // The type of token
     public int line { set; get; }            // The line number where the lexeme occurs
     public int column { set; get; }          // The column number where the lexeme starts
+
+
 }

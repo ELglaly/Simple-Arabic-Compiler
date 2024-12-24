@@ -268,4 +268,41 @@ namespace SAC9.Lexer
         }
 
         // Determine the token type based on the input string (for reserved words)
-        public static TokenType Re
+        // This method returns the corresponding TokenType for recognized Arabic keywords
+        public static TokenType ResWord(string input)
+        {
+            // Check for the keyword "اذا" (if statement) and return the corresponding TokenType
+            if (input == "اذا")
+                return TokenType.if_;
+
+            // Check for the keyword "اخر" (else statement) and return the corresponding TokenType
+            else if (input == "اخر")
+                return TokenType.else_;
+
+            // Check for the keyword "بينما" (while statement) and return the corresponding TokenType
+            else if (input == "بينما")
+                return TokenType.while_;
+
+            // Check for the keyword "ارجع" (return statement) and return the corresponding TokenType
+            else if (input == "ارجع")
+                return TokenType.return_;
+
+            // Check for the keyword "حقيقي" (real data type) and return the corresponding TokenType
+            else if (input == "حقيقي")
+                return TokenType.real_;
+
+            // Check for the keyword "صحيح" (integer data type) and return the corresponding TokenType
+            else if (input == "صحيح")
+                return TokenType.num_;
+
+            // Check for the keyword "خالى" or "خالي" (void data type) and return the corresponding TokenType
+            else if (input == "خالى" || input == "خالي")
+                return TokenType.Void_;
+
+            // If no match is found, return TokenType.Ident for identifiers
+            else
+                return TokenType.Ident;
+        }
+
+    }
+}

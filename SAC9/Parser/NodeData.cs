@@ -1,19 +1,30 @@
 ﻿namespace SAC9.Parser;
 
-public record Node {
-  public int left { get; set; }
-  public int right { get; set; }
+// Represents a node in the parse tree
+public record Node
+{
+    // The starting position of this node in the input
+    public int left { get; set; }
 
-  public string Type { get; set; } = string.Empty;
+    // The ending position of this node in the input
+    public int right { get; set; }
 
-  public List<Node> Children { get; } = new List<Node>();
+    // The type of this node (e.g., "Expression", "Statement")
+    public string Type { get; set; } = string.Empty;
+
+    // The child nodes of this node, representing sub-structures in the parse tree
+    public List<Node> Children { get; } = new List<Node>();
 }
 
-public record Result {
-  // -1 if error 
-  public int last { get; set; }
+// Represents the result of a parsing operation
+public record Result
+{
+    // The position of the last successfully parsed token (-1 indicates an error)
+    public int last { get; set; }
 
-  public string error { get; set; } = string.Empty;
+    // Error message, if any, describing what went wrong during parsing
+    public string error { get; set; } = string.Empty;
 
-  public Node ? node { get; set; } = new Node();
+    // The parse tree node generated from this parsing operation (null if an error occurred)
+    public Node? node { get; set; } = new Node();
 }
